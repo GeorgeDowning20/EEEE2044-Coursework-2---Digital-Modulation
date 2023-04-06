@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[9pt]{article}
 \input{Config/inlcude.tex}
 \input{Tools/lt2circuitikz-master/latex_ext.tex}
 \input{Config/Conf.tex}
@@ -19,55 +19,66 @@
 % \tableofcontents
 % \pagebreak
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-                                    % References
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\addcontentsline{toc}{section}{References}
-\bibliographystyle{IEEEtranN}
-\bibliography{biblist}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                     % Task 1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagebreak\section{Task 1}
+\section{Task 1}
 \input{Src/Task1.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                     % Task 2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagebreak\section{Task 2}
+\section{Task 2}
 \input{Src/Task2.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                     % Task 3
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagebreak\section{Task 3}
+\section{Task 3}
 \input{Src/Task3.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                     % Task 4
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagebreak\section{Task 4}
+\section{Task 4}
 \input{Src/Task4.tex}
 
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                                    % References
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{IEEEtranN}
+\bibliography{biblist}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                                     % Appendix
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagebreak
-% \appendix
-% \section*{Appendices}\addcontentsline{toc}{section}{Appendices}\label{appendix:main}
-% \renewcommand{\thesubsection}{\Alph{subsection}}
+ \appendix
+ \section*{Appendices}\label{appendix:main}%\addcontentsline{toc}{section}{Appendices}
+ \renewcommand{\thesubsection}{\Alph{subsection}}
 
-% \subsection{Matlab Code}
+ \subsection{Matlab Code}
+ \subsubsection{Task 1} \label{matlabs:task1}
+ \begin{scriptsize}
+    \inputminted{matlab}{Project/Matlab/Scripts/Task1.m}
+ \end{scriptsize}
 
-% \subsection{LTSpice Code}
+ \subsubsection{Task 2} \label{matlabs:task2}
+ \begin{scriptsize}
+    \inputminted{matlab}{Project/Matlab/Scripts/Task2.m}
+ \end{scriptsize}
+
+ \subsubsection{Task 3} \label{matlabs:task3}
+ \begin{scriptsize}
+    \inputminted{matlab}{Project/Matlab/Scripts/Task3.m}
+ \end{scriptsize}
+
+ \subsubsection{Task 4} \label{matlabs:task4}
+ \begin{scriptsize}
+    \inputminted{matlab}{Project/Matlab/QPSKTransmitterAndReceiverSimulinkExample/Task4_.m}
+ \end{scriptsize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}

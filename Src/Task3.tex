@@ -1,6 +1,28 @@
 \begin{figure}[ht!]
     \begin{center}
-        \input{Project/Matlab/Figures/fig2.tex}
+        \input{Project/Matlab/Figures/fig3.tex}
         \caption{Comparison of BER for QPSK, 16PSK, 64PSK, 16QAM and 64QAM}
     \end{center}\label{fig:3}
 \end{figure}
+
+\tiny
+
+\begin{equation} \label{eq:Q_function}
+    Q\left(x\right)\ =\ \frac{1}{2}\cdot\operatorname{erf}c\left(\frac{x}{\sqrt{2\cdot\log_{2}\left(M\right)}}\right)
+\end{equation}
+
+\begin{equation}\label{eq:PSK_QAM}
+    \begin{split}
+        BER_{QPSK}&=2Q\left(\sqrt{2\cdot\frac{E_{b}}{N_{0}}}\right)-Q^{2}\left(\sqrt{2\cdot\frac{E_{b}}{N_{0}}}\right)\\
+        BER_{MPSK}\left(M>4\right)&=2Q\left(\sin\left(\frac{\pi}{M}\right)\cdot\sqrt{2\cdot\frac{E_{b}}{N_{0}}}\right)\\
+        BER_{MQAM}&=1-\left(1-2\left(1-\frac{1}{\sqrt{M}}\right)\cdot Q\left(\sqrt{\frac{3\cdot\log_{2}\left(M\right)\cdot\frac{E_{b}}{N_{0}}}{M-1}}\right)\right)^{2}
+    \end{split}
+\end{equation}
+
+\normalsize
+
+An adaption of \cite{Mathuranathan2020Nov} was used to define the equations for BER as shown in eq.~\eqref{eq:PSK_QAM} where the Q function is defined in eq.~\eqref{eq:Q_function}. 
+
+Figure~\ref{fig:3} shows the theoretical (continuous) vs simulated (discrete) BER for QPSK, 16PSK, 64PSK, 16QAM and 64QAM. The results are obtained using the Matlab script as shown in \ref{matlabs:task3}, where the stop time was set to 2000 for the simulated results. The Graph shows the simulated results have very little variation from the theoretical results.
+
+The equation for QAM BER is only correct for square numbers of M. A bit error usually error occurs when a symbol is mistaken for its nearest member. The distance between symbols on the constellation diagram is variable for 8-QAM. Therefore the error for each BER for each symbol would have to be calculated and averaged, which is much more complicated than for a square number of M with a constant inter-symbol distance.

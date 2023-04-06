@@ -5,3 +5,15 @@
     \end{center} \label{fig:1}
 \end{figure}
 
+
+
+Figure \ref{fig:1} shows the stop time vs BER for QPSK, 16-PSK and 16-QAM modulations. The results are obtained using the Matlab script as shown in \ref{matlabs:task1}.
+
+
+Figure \ref{fig:1} shows the percentage BER vs SNR for QPSK, 16-PSK and 16-QAM modulations for different stop times. The results are plotted on an x-log scale. The results are obtained using the Matlab script as shown in \ref{matlabs:task1}. 
+
+The Graph shows to begin with the BER is not very precise, with lots of variation. As the simulation stop time increases, the \% BER converges on a value. at around 1000 intervals, the \% BER converges has converged really well. By 100000 intervals, the change in the BER is unobservable on the graph. This is because the noise model is based on a Gaussian probability distribution. As the stop time increases, the number of samples also increases, hence the noise model becomes more accurate and the BER converses on the true value.
+
+The Graph shows PSK 4 has the lowest BER. This is because PSK 4 has the least number of symbols. This means the spacing between symbols on a constellation diagram is the largest, hence is the least susceptible to noise. The PSK 16 has the highest BER. Although it has the same number of symbols as QAM 16, due to the unit circle constellation of PSK 16, vs the lattice constellation of QAM 16, the distance between symbols on the constellation diagram is smaller, therefore PSK16 is more susceptible to noise.
+
+

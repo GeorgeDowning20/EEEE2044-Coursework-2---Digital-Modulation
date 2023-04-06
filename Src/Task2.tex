@@ -4,3 +4,7 @@
         \caption{Comparison of BER for QPSK, 8PSK, 16PSK, 64PSK, 4QAM, 8QAM, 16QAM and 64QAM}
     \end{center}\label{fig:2}
 \end{figure}
+
+Figure~\ref{fig:2} shows BER for QPSK, 8PSK, 16PSK, 64PSK, 4QAM, 8QAM, 16QAM and 64QAM. The results are obtained using the Matlab script as shown in \ref{matlabs:task2}. The Graph shows as the signal strength increases the bitrate error decreases. QPSK or 4PSK is identical to 4QAM. This is because the constellation is identical. This is reflected in the results. For, configurations, (m>4), the lattice constellation of QAM provides better performance than the unit circle constellation of PSK. The higher the value of m, the greater the difference. As the number of symbols increases, the signal strength must be higher to achieve the same BER. This is due to the distance between symbols being smaller and therefore less resistant to white noise.
+
+The outlier of this graph is 8-QAM. This is because the constellation is not square. This means that the distance between symbols varies. Due to the nature of adding probabilities, the variance in distance between symbols hence, BER, means the overall BER is slightly higher than expected. This is reflected in the graph where the BER for 8-QAM is almost the same as 8-PSK, where perhaps a larger gap might be expected.

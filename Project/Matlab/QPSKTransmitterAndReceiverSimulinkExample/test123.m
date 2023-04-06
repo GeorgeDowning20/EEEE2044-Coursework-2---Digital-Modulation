@@ -1,0 +1,1 @@
+res = set_param('commqpsktxrx','EbN0dB','15')

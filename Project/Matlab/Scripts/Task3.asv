@@ -1,0 +1,94 @@
+%clear all;
+close all;
+
+global stop_time;
+global Eb_No_db;
+global phaseOffset;
+global m_ary;
+global idx;
+idx = 0;
+stop_time = 1000
+
+phaseOffset = 0
+
+max_EBN = 35
+resulution = 5
+
+figure;
+hold on;
+if(0)
+
+
+BER = EbNo_BER('../Simlink/PSK.slx', 4, -12, max_EBN, resulution, '-*')
+BER = EbNo_BER('../Simlink/PSK.slx', 8, -12, max_EBN, resulution, '-o')
+BER = EbNo_BER('../Simlink/PSK.slx', 16, -12, max_EBN, resulution, '-x')
+BER = EbNo_BER('../Simlink/PSK.slx', 64, -12, max_EBN, resulution, '-+')
+
+BER = EbNo_BER('../Simlink/QAM.slx', 4, -12, max_EBN, resulution, '-*')
+BER = EbNo_BER('../Simlink/QAM.slx', 8, -12, max_EBN, resulution, '-o')
+BER = EbNo_BER('../Simlink/QAM.slx', 16, -12, max_EBN, resulution, '-x')
+BER = EbNo_BER('../Simlink/QAM.slx', 64, -12, max_EBN, resulution, '-+')
+
+end
+
+%BPSK BER
+EbN0dB = -12:1:40;
+EbN0lin = 10.^(EbN0dB/10)
+colours  = {'k-','k-','g-','g-','b-','b-','r-','r-','m-^','c-v','k-<','g->','b-p','r-h','m-+'};
+
+index = 0
+
+index = index+1;
+M = [4 8 16 64];
+for i=M,
+    k = log2(i)
+    y_s = k*EbN0lin
+    syms x
+    Q(x) = (1/2)*erfc(x/sqrt(2*k));
+
+    if i == 4
+    berErr = 2*Q(sqrt())
+    else
+    berErr = 2*Q(sin(pi/i)*sqrt(2*y_s));
+    end
+    berErr2 = 1-(1-(2*(1-1/sqrt(i)))*Q(sqrt(3*y_s/(i-1)))).^2
+
+    plotHandle = plot(EbN0dB,(berErr),char(colours(index)));
+    index = index +1;
+
+    plotHandle2 = plot(EbN0dB,(berErr2),char(colours(index)));
+    index = index +1;
+end
+
+set(gca, 'YScale', 'log')
+legend('QPSK', '8-PSK', '16-PSK', '64-PSK', '4-QAM', '8-QAM', '16-QAM', '64-QAM')
+xlabel('Eb/No [dB]')
+ylabel('BER [arb]')
+xlim([-20 40]);
+ylim([10^-3 1]);
+hold off
+grid on;
+
+
+
+
+function BER = EbNo_BER(model, m, start, stop, resolution, line)
+    global m_ary;
+    global Eb_No_db;
+    global idx;
+    m_ary = m
+    idx=idx+1;
+
+    col = {'k*','g*','b*','r*','ko','go','bo','ro','m-^','c-v','k-<','g->','b-p','r-h','m-+'};
+
+    Eb_N = linspace(start, stop, resolution);
+
+    for i = 1:length(Eb_N)
+        Eb_No_db = Eb_N(i);
+        res = sim(model)
+        BER(i) = res.yout{1}.Values.Data(end, 1)
+    end
+
+    plot(Eb_N(:), BER(:), char(col(idx)));
+
+end

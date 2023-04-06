@@ -1,0 +1,33 @@
+clear all;
+close all;
+
+%x = linspace(0,2*pi,100);
+%y = sin(x);
+%plot(x,y)
+
+stop_time = 1000
+Eb_No_db = 8
+phaseOffset = 0
+
+m_ary = 4
+out1 = sim('../Simlink/PSK.slx')
+
+m_ary = 16
+out10 = sim('../Simlink/QAM.slx')
+    
+
+hold on;
+plot(out1.yout{1}.Values.Time(:), out1.yout{1}.Values.Data(:,1))
+plot(out2.yout{1}.Values.Time(:), out2.yout{1}.Values.Data(:,1))
+plot(out3.yout{1}.Values.Time(:), out3.yout{1}.Values.Data(:,1))
+
+hold off;
+
+legend('4PSK', '8PSK', '16PSK', '32PSK', '64PSK', '4QAM', '8QAM', '16QAM', '32QAM', '64QAM', 'Location', 'NorthWest')
+
+% set to log on x axis
+set(gca, 'XScale', 'log')
+
+cleanfigure; 
+matlab2tikz('../Figures/fig1.tex'); 
+

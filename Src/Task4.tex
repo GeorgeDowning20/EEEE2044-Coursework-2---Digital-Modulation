@@ -1,6 +1,10 @@
 \begin{figure}[ht!]
     \begin{center}
-        \input{Project/Matlab/Figures/fig2.tex}
+        \input{Project/Matlab/Figures/fig4.tex}
         \caption{Comparison of BER results }
     \end{center}\label{fig:4}
 \end{figure}
+
+Figure~\ref{fig:4} shows Eb/N0 vs BER for a QPSK signal in the presence of AWGN noise, vs a QPSK rx/tx communication link simulating additional: time delay, frequency offset distortions and filers present in typical communication links. The results are obtained using the Matlab script as shown in \ref{matlabs:task4}. The graph shows the simulated comms link is almost a perfect step whereases the simple model shows the BER decreasing smoothly as the signal strength increases. In the real world, this would make the comms link very binary, either having a connection or not. 
+
+For the comms link, the additional distortions further scramble the signal. The filters in the comms link can rebuild the signal in the presence of AWGN noise by comparing what they see to what they expect to see. However, if the noise is large enough these filters can't synchronize, and the signal becomes scrabbled. In practice, these links are either connected or not.
